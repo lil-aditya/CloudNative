@@ -1,0 +1,18 @@
+services:
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "8080:80"
+    depends_on:
+      - auth-service
+      - file-service
+
+  auth-service:
+    build: ./auth-service
+    ports:
+      - "8081:8080"
+
+  file-service:
+    build: ./file-service
+    ports:
+      - "8082:8080"
